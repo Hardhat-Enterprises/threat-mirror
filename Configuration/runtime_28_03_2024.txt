@@ -162,6 +162,7 @@ Cymru-Expert:
     the Cymru Whois DNS service
   enabled: true
   group: Expert
+  groupname: experts
   module: intelmq.bots.experts.cymru_whois.expert
   name: Cymru
   parameters:
@@ -392,50 +393,6 @@ SSH-PW-Auth-Collector:
     ssl_client_certificate: ''
     verify_pgp_signatures: false
   run_mode: continuous
-Sucuri-Hidden-Iframe-Collector:
-  bot_id: Sucuri-Hidden-Iframe-Collector
-  description: Fetch reports from an URL
-  enabled: true
-  group: Collector
-  groupname: collectors
-  module: intelmq.bots.collectors.http.collector_http
-  name: HTTP
-  parameters:
-    bottype: Collector
-    code: ''
-    destination_queues:
-      _default: [Sucuri-Parser-queue]
-    documentation: ''
-    extract_files: false
-    gpg_keyring: ''
-    http_header: {}
-    http_password: ''
-    http_url: https://labs.sucuri.net/about/?malware
-    http_url_formatting: false
-    http_username: ''
-    provider: Sucuri
-    rate_limit: 86400
-    signature_url: ''
-    signature_url_formatting: false
-    ssl_client_cert: ''
-    ssl_client_certificate: ''
-    verify_pgp_signatures: false
-  run_mode: continuous
-Sucuri-Parser:
-  bot_id: Sucuri-Parser
-  description: Parse the Sucuri Malware Hidden Iframes and Conditional redirections
-    feeds
-  enabled: true
-  group: Parser
-  groupname: parsers
-  module: intelmq.bots.parsers.sucuri.parser
-  name: Sucuri
-  parameters:
-    bottype: Parser
-    default_fields: {}
-    destination_queues:
-      _default: [deduplicator-expert-queue]
-  run_mode: continuous
 Threatminer-Parser:
   bot_id: Threatminer-Parser
   description: Parse the Threatminer feed
@@ -524,49 +481,6 @@ URLhaus-Parser:
     time_format: ''
     type: ''
     type_translation: {malware_download: malware-distribution}
-  run_mode: continuous
-UnsafeSites-Collector:
-  bot_id: UnsafeSites-Collector
-  description: Fetch reports from an URL
-  enabled: true
-  group: Collector
-  groupname: collectors
-  module: intelmq.bots.collectors.http.collector_http
-  name: HTTP
-  parameters:
-    bottype: Collector
-    code: ''
-    destination_queues:
-      _default: [Webinspektor-Parser-queue]
-    documentation: ''
-    extract_files: false
-    gpg_keyring: ''
-    http_header: {}
-    http_password: ''
-    http_url: https://app.webinspector.com/public/recent_detections/
-    http_url_formatting: false
-    http_username: ''
-    provider: ' WebInspektor'
-    rate_limit: 60
-    signature_url: ''
-    signature_url_formatting: false
-    ssl_client_cert: ''
-    ssl_client_certificate: ''
-    verify_pgp_signatures: false
-  run_mode: continuous
-Webinspektor-Parser:
-  bot_id: Webinspektor-Parser
-  description: Parse the Web Inspektor
-  enabled: true
-  group: Parser
-  groupname: parsers
-  module: intelmq.bots.parsers.webinspektor.parser
-  name: Webinspektor
-  parameters:
-    bottype: Parser
-    default_fields: {}
-    destination_queues:
-      _default: [deduplicator-expert-queue]
   run_mode: continuous
 cymru-whois-expert:
   bot_id: cymru-whois-expert
